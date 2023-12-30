@@ -5,6 +5,7 @@ from tkinter import filedialog, messagebox, Listbox, Scrollbar, VERTICAL, Text, 
 from ttkthemes import ThemedTk
 # 增加 DPI 设置（适用于 Windows）
 import ctypes
+
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
 alias_change_step = 0
 
