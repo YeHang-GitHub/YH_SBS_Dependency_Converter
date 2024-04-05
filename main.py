@@ -81,16 +81,6 @@ def create_gui():
     aliases_examples = {}  # 存储aliases及其示例
     selected_alias = None  # 当前选中的alias
 
-    def increase_alias_change_step():
-        global alias_change_step
-        alias_change_step += 1
-        on_new_alias_entry_change()
-
-    def decrease_alias_change_step():
-        global alias_change_step
-        alias_change_step = max(0, alias_change_step - 1)  # Ensure not to go negative
-        on_new_alias_entry_change()
-
     def on_choose_directory():
         nonlocal sbs_files, aliases_examples
         directory = filedialog.askdirectory()
@@ -292,14 +282,6 @@ def create_gui():
 
     new_alias_entry = tk.Entry(alias_input_frame, textvariable=new_alias_var, bg=darker_background, fg=light_foreground)
     new_alias_entry.pack(side='left', fill='x', expand=True, padx=5)
-
-    # 在新框架中添加 - 和 + 按钮
-
-    increase_button = ttk.Button(alias_input_frame, text="+", command=increase_alias_change_step)
-    increase_button.pack(side='left', padx=5)
-    decrease_button = ttk.Button(alias_input_frame, text="-", command=decrease_alias_change_step)
-    decrease_button.pack(side='left', padx=5)
-
 
 
     # 新别名预览文本框及其滚动条
